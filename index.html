@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightBridge - Your Bridge to Opportunity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="project/main.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 120 120" fill="none">
+                        <circle cx="60" cy="60" r="58" fill="white" stroke="#6B9080" stroke-width="2"/>
+                        <!-- Sun -->
+                        <g transform="translate(85, 25)">
+                            <circle cx="0" cy="0" r="8" fill="none" stroke="#6B9080" stroke-width="2"/>
+                            <path d="M-12 0L-10 0M12 0L10 0M0 -12L0 -10M0 12L0 10M-8.5 -8.5L-7 -7M8.5 8.5L7 7M8.5 -8.5L7 -7M-8.5 8.5L-7 7" stroke="#6B9080" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                        <!-- Birds -->
+                        <g stroke="#6B9080" stroke-width="1.5" fill="none" stroke-linecap="round">
+                            <path d="M25 35L30 32L35 35" />
+                            <path d="M35 45L40 42L45 45" />
+                            <path d="M45 30L50 27L55 30" />
+                        </g>
+                        <!-- Bridge -->
+                        <g transform="translate(60, 75)" stroke="#6B9080" stroke-width="2" fill="none">
+                            <!-- Bridge deck -->
+                            <path d="M-35 0L35 0" stroke-width="3"/>
+                            <!-- Bridge cables -->
+                            <path d="M-35 0Q-25 -15 -15 0Q-5 -20 5 0Q15 -20 25 0Q35 -15 35 0" stroke-width="2"/>
+                            <!-- Support posts -->
+                            <line x1="-30" y1="0" x2="-30" y2="15" stroke-width="2"/>
+                            <line x1="30" y1="0" x2="30" y2="15" stroke-width="2"/>
+                            <!-- Water waves -->
+                            <path d="M-40 20Q-35 17 -30 20Q-25 23 -20 20Q-15 17 -10 20Q-5 23 0 20Q5 17 10 20Q15 23 20 20Q25 17 30 20Q35 23 40 20" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <span class="brand-name">BRIGHTBRIDGE</span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">Who we are</a>
+                <a href="#offer" class="nav-link">What we offer</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#team" class="nav-link">Meet the team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your bridge to opportunity, mentorship and support</h1>
+                <p class="hero-subtitle">Every bright mind deserves to be nurtured</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Get started</button>
+                    <button class="btn-secondary" id="learnMoreBtn">Learn more</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/self-learning.png" alt="Person sitting on books with laptop" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <!-- Chatbot -->
+        <div class="chatbot">
+            <div class="chatbot-header">
+                <span>Chatbot extended</span>
+                <button class="chatbot-minimize">×</button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="message-bubble bot">
+                    <div class="avatar-icon"></div>
+                    <span>Hello! How can I help you today?</span>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type anything..." id="chatInput">
+                <button class="btn-send" id="sendBtn">Submit</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="about-container">
+            <h2 class="section-title">Who We are</h2>
+            <div class="about-logo">
+                <svg width="100" height="100" viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="58" fill="white" stroke="#6B9080" stroke-width="2"/>
+                    <!-- Sun -->
+                    <g transform="translate(85, 25)">
+                        <circle cx="0" cy="0" r="8" fill="none" stroke="#6B9080" stroke-width="2"/>
+                        <path d="M-12 0L-10 0M12 0L10 0M0 -12L0 -10M0 12L0 10M-8.5 -8.5L-7 -7M8.5 8.5L7 7M8.5 -8.5L7 -7M-8.5 8.5L-7 7" stroke="#6B9080" stroke-width="1.5" stroke-linecap="round"/>
+                    </g>
+                    <!-- Birds -->
+                    <g stroke="#6B9080" stroke-width="1.5" fill="none" stroke-linecap="round">
+                        <path d="M25 35L30 32L35 35" />
+                        <path d="M35 45L40 42L45 45" />
+                        <path d="M45 30L50 27L55 30" />
+                    </g>
+                    <!-- Bridge -->
+                    <g transform="translate(60, 75)" stroke="#6B9080" stroke-width="2" fill="none">
+                        <!-- Bridge deck -->
+                        <path d="M-35 0L35 0" stroke-width="3"/>
+                        <!-- Bridge cables -->
+                        <path d="M-35 0Q-25 -15 -15 0Q-5 -20 5 0Q15 -20 25 0Q35 -15 35 0" stroke-width="2"/>
+                        <!-- Support posts -->
+                        <line x1="-30" y1="0" x2="-30" y2="15" stroke-width="2"/>
+                        <line x1="30" y1="0" x2="30" y2="15" stroke-width="2"/>
+                        <!-- Water waves -->
+                        <path d="M-40 20Q-35 17 -30 20Q-25 23 -20 20Q-15 17 -10 20Q-5 23 0 20Q5 17 10 20Q15 23 20 20Q25 17 30 20Q35 23 40 20" stroke-width="1.5"/>
+                    </g>
+                    <text x="60" y="105" text-anchor="middle" class="logo-text" fill="#6B9080">BRIGHTBRIDGE</text>
+                </svg>
+            </div>
+            <p class="about-description">
+                We are a digital mentorship and micro-scholarship platform that connects high-potential students form 
+                under-resourced backgrounds with scholars, creators, and professionals who want to support them. 
+                Not just money but with time tools and community.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="offer">
+        <div class="products-container">
+            <h2 class="section-title">What we offer</h2>
+            <div class="products-carousel" id="productsCarousel">
+                <div class="carousel-indicators">
+                    <a href="#slide1" class="carousel-dot" id="dot1"></a>
+                    <a href="#slide2" class="carousel-dot" id="dot2"></a>
+                    <a href="#slide3" class="carousel-dot" id="dot3"></a>
+                </div>
+                <div class="carousel-track">
+                    <!-- Slide 1 -->
+                    <div class="product-card" id="slide1">
+                        <div class="product-info">
+                            <h3 class="product-title">Matchmaking</h3>
+                            <p class="product-description">
+                                A smart matching tool that connects students with mentors based on shared goals and interests.<br>
+                                <strong>Tool Used:</strong> AI-powered interest &amp; goal matching algorithm
+                            </p>
+                                <a class="btn-next" href="#slide2">Next &rarr;</a>
+                        </div>
+
+                        <div class="product-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Matchmaking" width="140" height="140">
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="product-card" id="slide2">
+                        <div class="product-info">
+                            <h3 class="product-title">MicroBoosts</h3>
+                            <p class="product-description">
+                                A feature that lets mentors or donors fund specific student needs (graphing, calculator, a competition fee, a course subscription) with a one-time contribution.<br>
+                                <strong>Tool Used:</strong> Micro-donation system with verified student requests
+                            </p>
+                            <a class="btn-next" href="#slide3">Next &rarr;</a>
+                        </div>
+                        <div class="product-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="MicroBoosts" width="140" height="140">
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="product-card" id="slide3">
+                        <div class="product-info">
+                            <h3 class="product-title">Growth tracks</h3>
+                            <p class="product-description">
+                                Curated resource playlists for students (engineering path, first gen college, SAT 1500+) that combine free tools, checklists and challenges.<br>
+                                <strong>Tool Used:</strong> Modular content system with checklists, tools, and challenges
+                            </p>
+                            <a class="btn-next" href="#slide1">&#8592; Back</a>
+                        </div>
+                        <div class="product-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Growth tracks" width="140" height="140">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">Testimonies</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=face" alt="Alicia Smith">
+                    </div>
+                    <div class="testimonial-content">
+                        <h4>Alicia Smith</h4>
+                        <p class="testimonial-role">Post-Graduate at Baylor University</p>
+                        <p class="testimonial-quote">"BrightBridge helped me get the tools I need to finish my university projects. I recommend it 100%."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Doe">
+                    </div>
+                    <div class="testimonial-content">
+                        <h4>Jane Doe</h4>
+                        <p class="testimonial-role">Student at MIT</p>
+                        <p class="testimonial-quote">"The mentorship and resources are top-notch. I found my mentor through BrightBridge!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Values Section -->
+    <section class="brand-values">
+        <div class="values-container">
+            <div class="values-bar">
+                <span class="value">Equity</span>
+                <span class="value-separator">•</span>
+                <span class="value">Empowerment</span>
+                <span class="value-separator">•</span>
+                <span class="value">Access</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="team" id="team">
+        <div class="team-container">
+            <h2 class="section-title">Meet the team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Yishak Tesfaye">
+                    </div>
+                    <h4>Yishak Tesfaye</h4>
+                    <p class="member-role">Co-founder & Engineering Lead</p>
+                    <p class="member-bio">Yishak leads all things tech and product. With years of experience in mentoring and software, he ensures the platform is robust and user-friendly.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Bontu Duguma">
+                    </div>
+                    <h4>Bontu Duguma</h4>
+                    <p class="member-role">Head of Student Services</p>
+                    <p class="member-bio">Bontu is passionate about helping students succeed and is always ready to connect you with the right mentor.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Amanuel Tesfaye">
+                    </div>
+                    <h4>Amanuel Tesfaye</h4>
+                    <p class="member-role">Community Manager</p>
+                    <p class="member-bio">Amanuel builds and supports our vibrant community, making sure every student feels welcome and empowered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="JohnDoe@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Type anything..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Audience Toggle Section -->
+    <section class="audience-toggle-section">
+      <div class="audience-toggle">
+        <label class="switch">
+          <input type="checkbox" id="audienceSwitch">
+          <span class="slider"></span>
+        </label>
+        <span id="audienceLabel">For Students</span>
+      </div>
+      <div id="audienceContent">
+        <div class="audience-block" id="studentsBlock">
+          <h3>For Students</h3>
+          <p>Access mentorship, resources, and a supportive community to help you succeed.</p>
+        </div>
+        <div class="audience-block" id="mentorsBlock" style="display:none;">
+          <h3>For Mentors</h3>
+          <p>Share your expertise, guide students, and make a real impact in their lives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <svg width="32" height="32" viewBox="0 0 120 120" fill="none">
+                        <circle cx="60" cy="60" r="58" fill="#6B9080" stroke="#fff" stroke-width="2"/>
+                        <!-- Sun -->
+                        <g transform="translate(85, 25)">
+                            <circle cx="0" cy="0" r="8" fill="none" stroke="white" stroke-width="2"/>
+                            <path d="M-12 0L-10 0M12 0L10 0M0 -12L0 -10M0 12L0 10M-8.5 -8.5L-7 -7M8.5 8.5L7 7M8.5 -8.5L7 -7M-8.5 8.5L-7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                        <!-- Birds -->
+                        <g stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round">
+                            <path d="M25 35L30 32L35 35" />
+                            <path d="M35 45L40 42L45 45" />
+                            <path d="M45 30L50 27L55 30" />
+                        </g>
+                        <!-- Bridge -->
+                        <g transform="translate(60, 75)" stroke="white" stroke-width="2" fill="none">
+                            <!-- Bridge deck -->
+                            <path d="M-35 0L35 0" stroke-width="3"/>
+                            <!-- Bridge cables -->
+                            <path d="M-35 0Q-25 -15 -15 0Q-5 -20 5 0Q15 -20 25 0Q35 -15 35 0" stroke-width="2"/>
+                            <!-- Support posts -->
+                            <line x1="-30" y1="0" x2="-30" y2="15" stroke-width="2"/>
+                            <line x1="30" y1="0" x2="30" y2="15" stroke-width="2"/>
+                            <!-- Water waves -->
+                            <path d="M-40 20Q-35 17 -30 20Q-25 23 -20 20Q-15 17 -10 20Q-5 23 0 20Q5 17 10 20Q15 23 20 20Q25 17 30 20Q35 23 40 20" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                    <span>@brightbridge2025</span>
+                </div>
+                <p class="footer-copyright">All rights reserved</p>
+                <p class="visitor-counter">Visitors: <span id="visitorCount">12,847</span></p>
+            </div>
+            <div class="footer-center">
+                <nav class="footer-nav">
+                    <a href="#hero">Home</a>
+                    <a href="#about">Who we are</a>
+                    <a href="#offer">What we offer</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#team">Meet the team</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
