@@ -489,17 +489,17 @@ body {
 
 .about-logo {
     margin-bottom: 2rem;
-    max-width: 200px;
+    max-width: 300px;
     margin: 0 auto 2rem;
 }
 
 .about-logo img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     filter: brightness(0.95) contrast(1.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.15);
 }
 
 .logo-text {
@@ -768,14 +768,27 @@ body {
 
 .team-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 2rem;
     justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .team-member {
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(107, 144, 128, 0.07);
+    padding: 24px;
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
 }
 
 .member-avatar img {
@@ -1197,5 +1210,18 @@ img[src] {
     .testimonial-card {
         width: 100%;
         max-width: 480px;
+    }
+}
+
+/* Update responsive design for team section */
+@media (max-width: 1024px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-member {
+        width: 100%;
+        max-width: 360px;
     }
 }
