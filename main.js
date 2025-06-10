@@ -401,3 +401,46 @@ audienceSwitch.addEventListener('change', function() {
     mentorsBlock.style.display = 'none';
   }
 });
+
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselDots = document.querySelectorAll('.carousel-dot');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    // Function to update active dot and slide
+    function updateCarousel() {
+        const hash = window.location.hash || '#slide1';
+        
+        // Update dots
+        carouselDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('href') === hash) {
+                dot.classList.add('active');
+            }
+        });
+        
+        // Update slides
+        productCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        const activeSlide = document.querySelector(hash);
+        if (activeSlide) {
+            activeSlide.style.display = 'flex';
+        }
+    }
+    
+    // Initialize carousel
+    updateCarousel();
+    
+    // Update on hash change
+    window.addEventListener('hashchange', updateCarousel);
+    
+    // Add click handlers to dots
+    carouselDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = dot.getAttribute('href');
+            window.location.hash = targetId;
+        });
+    });
+});

@@ -548,7 +548,7 @@ body {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(107, 144, 128, 0.07);
-    align-items: stretch;
+    padding-top: 3rem; /* Add padding for indicators */
 }
 
 .carousel-track {
@@ -610,51 +610,31 @@ body {
 
 .carousel-indicators {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin: 1.5rem 0;
     gap: 0.5rem;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    z-index: 10;
 }
 
 .carousel-dot {
     display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #e0e0e0;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(107, 144, 128, 0.3);
     border: none;
-    transition: background 0.2s, width 0.2s, border-radius 0.2s;
-    margin: 0 4px;
-    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-/* Default: first dot is active if no hash */
-.carousel-dot#dot1 {
+.carousel-dot.active {
     background: #6B9080;
     width: 32px;
-    border-radius: 16px;
-}
-
-/* Slide 2 active */
-#slide2:target ~ .carousel-indicators #dot1,
-#slide2:target ~ .carousel-indicators #dot3,
-#slide3:target ~ .carousel-indicators #dot1,
-#slide3:target ~ .carousel-indicators #dot2 {
-    background: #e0e0e0;
-    width: 14px;
-    border-radius: 50%;
-}
-#slide2:target ~ .carousel-indicators #dot2 {
-    background: #6B9080;
-    width: 32px;
-    border-radius: 16px;
-}
-
-/* Slide 3 active */
-#slide3:target ~ .carousel-indicators #dot3 {
-    background: #6B9080;
-    width: 32px;
-    border-radius: 16px;
+    height: 12px;
+    border-radius: 6px;
 }
 
 .product-card {
@@ -662,7 +642,8 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    padding: 32px 24px;
+    padding: 2rem 24px;
+    min-height: 320px;
 }
 
 /* Testimonials Section */
@@ -683,23 +664,19 @@ body {
     margin-bottom: 3rem;
 }
 
-.testimonials-grid, .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.testimonial-card, .team-member {
-    background: #fff;
+.testimonial-card {
     border-radius: 18px;
     box-shadow: 0 2px 12px rgba(107, 144, 128, 0.07);
+    background: #fff;
     padding: 24px;
-    min-width: 220px;
-    max-width: 320px;
+    margin: 16px 0;
+    min-width: 320px;
+    max-width: 480px;
+    min-height: 220px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    text-align: left;
     gap: 1.5rem;
 }
 
@@ -740,15 +717,23 @@ body {
     background: #fff;
     padding: 24px;
     margin: 16px 0;
-    min-width: 220px;
+    min-width: 320px;
+    max-width: 480px;
     min-height: 220px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     flex-direction: row;
     align-items: flex-start;
     text-align: left;
     gap: 1.5rem;
+}
+
+.testimonials-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Brand Values Section */
