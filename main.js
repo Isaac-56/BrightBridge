@@ -164,7 +164,66 @@ function initChatbot() {
 // Initialize chatbot when DOM is loaded
 console.log('Setting up DOMContentLoaded listener...');
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded');
+    console.log('DOM Content Loaded - Initializing all features');
+    
+    // Initialize FAQ
+    const faqButtons = document.querySelectorAll('.faq-question');
+    console.log('Found FAQ buttons:', faqButtons.length);
+    
+    if (faqButtons.length > 0) {
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    }
+    
+    // Initialize Learn More button
+    const learnMoreBtn = document.getElementById('learnMoreBtn');
+    const offerSection = document.getElementById('offer');
+    if (learnMoreBtn && offerSection) {
+        learnMoreBtn.addEventListener('click', () => {
+            offerSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
+    // Initialize fade-in animations
+    const elementsToAnimate = document.querySelectorAll('.section-title, .product-card, img');
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.tagName === 'IMG') {
+                        entry.target.style.opacity = '1';
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2, rootMargin: '50px' }
+    );
+    
+    elementsToAnimate.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+    
+    // Initialize mobile menu
+    createMobileMenu();
+    
+    // Initialize chatbot
     initChatbot();
 });
 
@@ -444,3 +503,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// FAQ Accordion
+function initFAQ() {
+    const faqButtons = document.querySelectorAll('.faq-question');
+    
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+}
+
+// Initialize FAQ when DOM is loaded
+document.addEventListener('DOMContentLoaded', initFAQ);
