@@ -50,7 +50,7 @@ body {
 /* --- NAVIGATION LINKS: EVEN SMALLER SIZE & TIGHTER SPACING --- */
 .nav-links {
     display: flex;
-    gap: 0.7rem;           /* Tighter gap between links */
+    gap: 0.5rem;
 }
 
 .nav-link {
@@ -58,8 +58,8 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s ease;
-    font-size: 0.85rem;    /* Smaller font */
-    padding: 0.15rem 0.3rem; /* Less padding */
+    font-size: 0.8rem;
+    padding: 0.15rem 0.3rem;
     letter-spacing: 0.1px;
 }
 
@@ -1065,71 +1065,109 @@ input:checked + .slider:before {
   transition: opacity 0.3s;
 }
 
+/* Mobile Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
-        gap: 1rem;
+        padding: 1rem;
+        position: relative;
+    }
+    
+    .hamburger {
+        display: block;
     }
     
     .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
         gap: 1rem;
     }
     
+    .nav-links.mobile-active {
+        display: flex;
+    }
+    
     .nav-buttons {
-        order: -1;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .nav-buttons.mobile-active {
+        display: flex;
+    }
+    
+    .btn-login,
+    .btn-signup {
+        width: 100%;
     }
     
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding: 2rem 1rem;
     }
     
     .hero-content h1 {
         font-size: 2rem;
     }
     
-    .chatbot {
-        display: none;
-    }
-    
-    .products-carousel {
-        grid-template-columns: 1fr;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .team-member {
+    .testimonials-grid,
+    .team-grid {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .testimonial-card,
+    .team-member {
+        width: 100%;
+        max-width: 480px;
     }
     
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding: 2rem 1rem;
     }
     
     .social-links {
         justify-content: center;
     }
-    
-    .values-bar {
-        flex-direction: column;
-        gap: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
+    .nav-link {
+        font-size: 0.75rem;
+    }
+    
     .hero-content h1 {
         font-size: 1.75rem;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .hero-buttons {
@@ -1140,6 +1178,16 @@ input:checked + .slider:before {
     .btn-primary,
     .btn-secondary {
         width: 100%;
+    }
+    
+    .product-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .product-img {
+        margin-top: 1rem;
     }
 }
 
