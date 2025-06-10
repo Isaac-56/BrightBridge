@@ -678,6 +678,7 @@ body {
     align-items: flex-start;
     text-align: left;
     gap: 1.5rem;
+    flex: 1;
 }
 
 .testimonial-avatar img, .member-avatar img {
@@ -711,29 +712,14 @@ body {
     font-style: italic;
 }
 
-.testimonial-card {
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(107, 144, 128, 0.07);
-    background: #fff;
-    padding: 24px;
-    margin: 16px 0;
-    min-width: 320px;
-    max-width: 480px;
-    min-height: 220px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-    gap: 1.5rem;
-}
-
 .testimonials-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 2rem;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* Brand Values Section */
@@ -1199,4 +1185,17 @@ img {
 
 img[src] {
     opacity: 1;
+}
+
+/* Update responsive design for testimonials */
+@media (max-width: 1024px) {
+    .testimonials-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial-card {
+        width: 100%;
+        max-width: 480px;
+    }
 }
