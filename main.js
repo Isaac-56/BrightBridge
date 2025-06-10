@@ -59,6 +59,8 @@ function initChatbot() {
     const chatInput = document.getElementById('chatInput');
     const minimizeBtn = document.querySelector('.chatbot-minimize');
     const chatbot = document.querySelector('.chatbot');
+    const chatbotMessages = document.querySelector('.chatbot-messages');
+    const chatbotInput = document.querySelector('.chatbot-input');
 
     console.log('Chatbot elements:', { sendBtn, chatInput, minimizeBtn, chatbot });
 
@@ -123,15 +125,40 @@ function initChatbot() {
         }
     });
 
+    let isMinimized = false;
     minimizeBtn.addEventListener('click', () => {
         console.log('Minimize button clicked');
-        chatbot.style.display = 'none';
+        isMinimized = !isMinimized;
+        if (isMinimized) {
+            chatbot.classList.add('minimized');
+            chatbotMessages.style.display = 'none';
+            chatbotInput.style.display = 'none';
+            minimizeBtn.innerHTML = '?';
+        } else {
+            chatbot.classList.remove('minimized');
+            chatbotMessages.style.display = 'block';
+            chatbotInput.style.display = 'flex';
+            minimizeBtn.innerHTML = '×';
+        }
     });
 
-    // Add initial bot message
-    console.log('Adding initial bot message');
-    addChatMessage(chatMessages[0], 'bot');
-    currentMessageIndex = 1;
+    // Add click handler for the entire minimized chatbot
+    chatbot.addEventListener('click', (e) => {
+        if (isMinimized && e.target === chatbot) {
+            isMinimized = false;
+            chatbot.classList.remove('minimized');
+            chatbotMessages.style.display = 'block';
+            chatbotInput.style.display = 'flex';
+            minimizeBtn.innerHTML = '×';
+        }
+    });
+
+    // Add initial bot message only if there are no messages
+    if (chatbotMessages.children.length === 0) {
+        console.log('Adding initial bot message');
+        addChatMessage(chatMessages[0], 'bot');
+        currentMessageIndex = 1;
+    }
 }
 
 // Initialize chatbot when DOM is loaded
