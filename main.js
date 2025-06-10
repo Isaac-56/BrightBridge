@@ -171,20 +171,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '50px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // If it's an image, ensure it's visible
+            if (entry.target.tagName === 'IMG') {
+                entry.target.style.opacity = '1';
+            }
         }
     });
 }, observerOptions);
 
 // Add fade-in class to elements and observe them
 document.addEventListener('DOMContentLoaded', function() {
-    const elementsToAnimate = document.querySelectorAll('.section-title, .product-card');
+    const elementsToAnimate = document.querySelectorAll('.section-title, .product-card, img');
     
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-in');
@@ -254,13 +258,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     
     images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
         // Set initial opacity
         img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
+        img.style.transition = 'opacity 0.5s ease';
+
+        // If image is already loaded
+        if (img.complete) {
+            img.style.opacity = '1';
+        } else {
+            // Add load event listener
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+
+            // Add error handling
+            img.addEventListener('error', function() {
+                console.error('Failed to load image:', this.src);
+                this.style.opacity = '1'; // Show broken image
+            });
+        }
     });
 });
 

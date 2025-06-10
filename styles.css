@@ -489,6 +489,17 @@ body {
 
 .about-logo {
     margin-bottom: 2rem;
+    max-width: 200px;
+    margin: 0 auto 2rem;
+}
+
+.about-logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    filter: brightness(0.95) contrast(1.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo-text {
@@ -502,6 +513,7 @@ body {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* --- PRODUCTS CAROUSEL (WHAT WE OFFER) --- */
@@ -1010,8 +1022,9 @@ body {
 /* --- ANIMATION CLASSES --- */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
 }
 
 .fade-in.visible {
@@ -1188,4 +1201,17 @@ input:checked + .slider:before {
 
 .carousel-track .product-card:first-child {
     display: flex;
+}
+
+/* Image and Animation Styles */
+img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+img[src] {
+    opacity: 1;
 }
