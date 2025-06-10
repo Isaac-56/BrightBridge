@@ -279,7 +279,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #6B9080;
+    background: #435b51;
     color: white;
     box-shadow: 0 4px 16px rgba(107, 144, 128, 0.2);
     transition: all 0.3s ease;
@@ -288,6 +288,7 @@ body {
 .chatbot.minimized:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(107, 144, 128, 0.3);
+    background: #afdcc7;
 }
 
 .chatbot.minimized .chatbot-header {
