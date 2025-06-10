@@ -471,7 +471,7 @@ body {
 .about-us {
     background: #6B9080;
     color: white;
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .about-container {
@@ -484,22 +484,22 @@ body {
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .about-logo {
-    margin-bottom: 2rem;
-    max-width: 300px;
-    margin: 0 auto 2rem;
+    margin-bottom: 1rem;
+    max-width: 400px;
+    margin: 0 auto 1rem;
 }
 
 .about-logo img {
     width: 100%;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
     filter: brightness(0.95) contrast(1.1);
-    border: 3px solid rgba(255, 255, 255, 0.15);
+    border: 4px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo-text {
@@ -514,6 +514,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.9);
+    padding-bottom: 0.5rem;
 }
 
 /* --- PRODUCTS CAROUSEL (WHAT WE OFFER) --- */
@@ -548,7 +549,7 @@ body {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(107, 144, 128, 0.07);
-    padding-top: 3rem; /* Add padding for indicators */
+    padding-top: 0;  /* Removed padding for indicators */
 }
 
 .carousel-track {
@@ -608,33 +609,10 @@ body {
     background: #4e6e5d;
 }
 
-.carousel-indicators {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-    position: absolute;
-    top: 1rem;
-    left: 1.5rem;
-    z-index: 10;
-}
-
+/* Remove indicator styles */
+.carousel-indicators,
 .carousel-dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 6px;
-    background: rgba(107, 144, 128, 0.3);
-    border: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.carousel-dot.active {
-    background: #6B9080;
-    width: 32px;
-    height: 12px;
-    border-radius: 6px;
+    display: none;
 }
 
 .product-card {
