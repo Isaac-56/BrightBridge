@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Initialize mobile menu
-    createMobileMenu();
+    initMobileMenu();
     
     // Initialize chatbot
     initChatbot();
@@ -271,33 +271,47 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => observer.observe(el));
 });
 
-// Mobile menu toggle (for responsive design)
-function createMobileMenu() {
+// Mobile menu functionality
+function initMobileMenu() {
+    // Create menu button
+    const menuButton = document.createElement('button');
+    menuButton.className = 'hamburger menu';
+    menuButton.innerHTML = '☰';
+    menuButton.setAttribute('aria-label', 'Open menu');
+    
+    // Create close button
+    const closeButton = document.createElement('button');
+    closeButton.className = 'hamburger close';
+    closeButton.innerHTML = '✕';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    
     const nav = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
     const navButtons = document.querySelector('.nav-buttons');
     
-    // Create hamburger button
-    const hamburger = document.createElement('button');
-    hamburger.className = 'hamburger';
-    hamburger.innerHTML = '☰';
-    hamburger.setAttribute('aria-label', 'Toggle menu');
+    nav.querySelector('.nav-container').appendChild(menuButton);
+    nav.querySelector('.nav-container').appendChild(closeButton);
     
-    nav.querySelector('.nav-container').appendChild(hamburger);
+    function openMenu() {
+        navLinks.classList.add('mobile-active');
+        navButtons.classList.add('mobile-active');
+    }
     
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        navLinks.classList.toggle('mobile-active');
-        navButtons.classList.toggle('mobile-active');
-        hamburger.innerHTML = navLinks.classList.contains('mobile-active') ? '✕' : '☰';
-    });
+    function closeMenu() {
+        navLinks.classList.remove('mobile-active');
+        navButtons.classList.remove('mobile-active');
+    }
+    
+    // Open menu on menu button click
+    menuButton.addEventListener('click', openMenu);
+    
+    // Close menu on close button click
+    closeButton.addEventListener('click', closeMenu);
     
     // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', (e) => {
         if (!nav.contains(e.target) && navLinks.classList.contains('mobile-active')) {
-            navLinks.classList.remove('mobile-active');
-            navButtons.classList.remove('mobile-active');
-            hamburger.innerHTML = '☰';
+            closeMenu();
         }
     });
     
@@ -305,27 +319,21 @@ function createMobileMenu() {
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
-                navLinks.classList.remove('mobile-active');
-                navButtons.classList.remove('mobile-active');
-                hamburger.innerHTML = '☰';
+                closeMenu();
             }
         });
     });
     
     // Handle window resize
-    function handleResize() {
-        if (window.innerWidth > 768) {
-            navLinks.classList.remove('mobile-active');
-            navButtons.classList.remove('mobile-active');
-            hamburger.innerHTML = '☰';
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('mobile-active')) {
+            closeMenu();
         }
-    }
-    
-    window.addEventListener('resize', handleResize);
+    });
 }
 
 // Initialize mobile menu when DOM is loaded
-document.addEventListener('DOMContentLoaded', createMobileMenu);
+document.addEventListener('DOMContentLoaded', initMobileMenu);
 
 // Add loading animation for images
 document.addEventListener('DOMContentLoaded', function() {
