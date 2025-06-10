@@ -42,7 +42,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 
 // Chatbot Functionality
-let chatMessages = [
+const chatMessages = [
     "Hello! How can I help you today?",
     "I can provide information about our mentorship programs.",
     "Would you like to know more about our matching system?",
@@ -52,59 +52,94 @@ let chatMessages = [
 
 let currentMessageIndex = 0;
 
-document.getElementById('sendBtn').addEventListener('click', function() {
-    const input = document.getElementById('chatInput');
-    const messageText = input.value.trim();
-    
-    if (messageText) {
-        // Add user message
-        addChatMessage(messageText, 'user');
-        input.value = '';
+// Initialize chatbot
+function initChatbot() {
+    console.log('Initializing chatbot...');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+    const minimizeBtn = document.querySelector('.chatbot-minimize');
+    const chatbot = document.querySelector('.chatbot');
+
+    console.log('Chatbot elements:', { sendBtn, chatInput, minimizeBtn, chatbot });
+
+    if (!sendBtn || !chatInput || !minimizeBtn || !chatbot) {
+        console.error('Chatbot elements not found');
+        return;
+    }
+
+    // Send message function
+    function sendMessage() {
+        console.log('Sending message...');
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+            console.log('Adding user message:', messageText);
+            // Add user message
+            addChatMessage(messageText, 'user');
+            chatInput.value = '';
+            
+            // Add bot response after a delay
+            setTimeout(() => {
+                const botResponse = chatMessages[currentMessageIndex % chatMessages.length];
+                console.log('Adding bot response:', botResponse);
+                addChatMessage(botResponse, 'bot');
+                currentMessageIndex++;
+            }, 1000);
+        }
+    }
+
+    // Add message to chat
+    function addChatMessage(text, sender) {
+        console.log('Adding chat message:', { text, sender });
+        const messagesContainer = document.querySelector('.chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message-bubble ${sender}`;
         
-        // Add bot response after a delay
-        setTimeout(() => {
-            const botResponse = chatMessages[currentMessageIndex % chatMessages.length];
-            addChatMessage(botResponse, 'bot');
-            currentMessageIndex++;
-        }, 1000);
+        if (sender === 'bot') {
+            messageDiv.innerHTML = `
+                <div class="avatar-icon">B</div>
+                <span>${text}</span>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <span>${text}</span>
+            `;
+        }
+        
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
-});
 
-// Allow Enter key to send messages
-document.getElementById('chatInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        document.getElementById('sendBtn').click();
-    }
-});
+    // Event Listeners
+    console.log('Adding event listeners...');
+    sendBtn.addEventListener('click', () => {
+        console.log('Send button clicked');
+        sendMessage();
+    });
+    
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            console.log('Enter key pressed');
+            sendMessage();
+        }
+    });
 
-function addChatMessage(text, sender) {
-    const messagesContainer = document.querySelector('.chatbot-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message-bubble ${sender}`;
-    
-    if (sender === 'bot') {
-        messageDiv.innerHTML = `
-            <div class="avatar-icon"></div>
-            <span>${text}</span>
-        `;
-    } else {
-        messageDiv.innerHTML = `
-            <span style="margin-left: auto; background: #6B9080; color: white; padding: 0.5rem 1rem; border-radius: 16px;">${text}</span>
-        `;
-        messageDiv.style.justifyContent = 'flex-end';
-    }
-    
-    messagesContainer.appendChild(messageDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    minimizeBtn.addEventListener('click', () => {
+        console.log('Minimize button clicked');
+        chatbot.style.display = 'none';
+    });
+
+    // Add initial bot message
+    console.log('Adding initial bot message');
+    addChatMessage(chatMessages[0], 'bot');
+    currentMessageIndex = 1;
 }
 
-// Chatbot minimize functionality
-document.querySelector('.chatbot-minimize').addEventListener('click', function() {
-    document.querySelector('.chatbot').style.display = 'none';
+// Initialize chatbot when DOM is loaded
+console.log('Setting up DOMContentLoaded listener...');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    initChatbot();
 });
-
-// Smooth scrolling for navigation links
-
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -145,8 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     fadeEls.forEach(el => observer.observe(el));
 });
-
-
 
 // Mobile menu toggle (for responsive design)
 function createMobileMenu() {
